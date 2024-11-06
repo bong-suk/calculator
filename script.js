@@ -46,13 +46,29 @@ buttons.forEach((button) => {
       // . 버튼 클릭 시: 소수점 처리
       if (!display.textContent.includes(".")) {
         updateDisplay(display.textContent + ".");
+      } else if (buttonValue === "%") {
+        // % 버튼 클릭 시: 백분율 계산
+        const currentValue = parseFloat(display.textContent);
+        if (!isNaN(currentValue)) {
+          const result = currentValue * 0.01;
+          updateDisplay(result);
+          if (operator === null) {
+            firstOperand = result;
+          }
+        }
+      } else if (buttonValue === "±") {
+        // ± 버튼 클릭 시: 부호 변경
+        const currentValue = parseFloat(display.textContent);
+        if (!isNaN(currentValue)) {
+          const result = currentValue * -1;
+          updateDisplay(result);
+          if (operator === null) {
+            firstOperand = result;
+          }
+        }
       }
     } else if (["+", "-", "*", "/"].includes(buttonValue)) {
       // 연산자 버튼 클릭 시
-      if (previousOperator === "=") {
-        // 이전 연산자가 "=" 이면 화면 초기화
-        updateDisplay("0");
-      }
       operator = buttonValue; // 새로운 연산자 저장
       previousOperator = buttonValue; // 현재 연산자를 이전 연산자로 저장
       console.log("firstOperand:", firstOperand);
@@ -64,7 +80,6 @@ buttons.forEach((button) => {
         const result = calculate(firstOperand, operator, secondOperand);
         updateDisplay(result);
         firstOperand = result; // 결과를 첫 번째 피연산자로 설정
-        operator = null; // 연산자 초기화
       }
       previousOperator = buttonValue; // 현재 연산자를 이전 연산자로 저장
     }

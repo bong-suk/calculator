@@ -10,10 +10,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: burlywood;
 }
 .caluculator-container {
   border: 1px solid transparent;
-  border-color: green;
+  background-color: bisque;
   margin: 100px;
   width: auto;
   height: auto;
@@ -21,15 +22,16 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 3%;
 }
 
 .display {
   border: 1px solid transparent;
-  border-color: burlywood;
+  border-color: white;
   height: 50px;
-  width: 250px;
+  width: 230px;
   padding: 5px;
-  color: burlywood;
+  color: white;
   margin: 5px;
   text-align: right;
   font-size: 20px;
@@ -39,21 +41,25 @@ body {
 .buttons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   border: 1px solid transparent;
-  border-color: blueviolet;
+  border-color: none;
   width: 250px;
   margin: 0 0 5px 0;
   padding: 5px;
-  color: blueviolet;
+  color: black;
+  gap: 3px;
 }
 
 .button {
-  flex-basis: 25%;
+  flex-basis: 23%;
   height: 50px;
+  border-radius: 20%;
 }
 
 .zero {
-  flex-basis: 50%;
+  flex-basis: 47.5%;
+  border-radius: 10px;
 }
 
 .title-button {
@@ -83,4 +89,13 @@ body {
 }
 .button:active {
   background-color: darkslategrey;
+}
+.number {
+  background-color: burlywood;
+}
+.operator {
+  background-color: blanchedalmond;
+}
+.function {
+  background-color: antiquewhite;
 }
